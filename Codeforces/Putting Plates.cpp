@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define forn(i,j,n) for(int i =j; i<n; i++)
+#define ll long long
+#define all(v)  v.begin() , v.end()
+#define vi(v,n) vector<int> v(n)
+//#define str string
+#define fora(e,v) for(auto &e :v)
+#define endl "\n"
+#define pi acos(-1.0)
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int t;
+    cin >> t;
+    
+    while(t--)
+    {   int a, b;
+        cin >> a >>  b;
+        for(int i =0;i<b;i++)
+        {
+            if(i%2==0)
+                cout << 1;
+            else
+                cout << 0;
+        }
+        cout << endl;
+        for(int i = 1;i<a-1;i++)
+        {
+            for(int j=0;j<b;j++)
+            {
+                if((i%2==0 && (j==0 || j==b-1)) && i!=a-2)
+                    cout << 1;
+                else
+                    cout << 0;
+            }
+            cout << endl;
+        }
+       for(int i =0;i<b;i++)
+        {
+            if(i%2==0)
+                cout << 1;
+            else
+                cout << 0;
+        }
+        cout << endl;
+        cout << endl;
+
+
+    }
+}
+
