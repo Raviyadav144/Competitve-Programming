@@ -1,0 +1,57 @@
+//-----raviyadav144----//
+#include<bits/stdc++.h>
+using namespace std;
+
+#define forn(i,j,n) for(int i =j; i<n; i++)
+#define ll long long
+#define all(v)  v.begin() , v.end()
+#define vi(v,n) vector<int> v(n)
+#define fora(e,v) for(auto &e :v)
+#define endl "\n"
+#define pi acos(-1.0)
+#define mod 1000000009
+
+int knapSack(int n , int w ,vector<int>&val , vector<int>&wt)
+{
+    int dp[n+1][w+1];
+    for(int i =0;i<=n;i++)
+    {
+        dp[i][0] = 0;
+    }
+    for(int i = 1;i<=w;++i)
+    {
+        dp[0][i] = 0;
+    }
+    for(int i =1;i<=n;++i)
+    {
+        for(int j = 1;j<=w;++j)
+        {
+            if(wt[i-1]<=j)
+                dp[i][j] = max(val[i-1]+dp[i][j-wt[i-1]],dp[i-1][j]);
+            else
+                dp[i][j] = dp[i-1][j];
+        }
+    }
+    return dp[n][w];
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int n , w ;
+    cin >> n >> w;
+    vector<int> wt;
+    vector<int>val;
+    for(int i =0;i<n;++i)
+    {
+        int  a,b;
+        cin >> a  >> b;
+        val.push_back(a);
+        wt.push_back(b);
+    }
+
+    cout <<  knapSack(n,w, val,wt) << endl;
+
+}
+
