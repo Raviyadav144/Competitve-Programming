@@ -1,0 +1,57 @@
+//-----raviyadav144----//
+#include<bits/stdc++.h>
+using namespace std;
+
+#define forn(i,j,n) for(int i =j; i<n; i++)
+#define ll long long
+#define all(v)  v.begin() , v.end()
+#define vi(v,n) vector<int> v(n)
+#define fora(e,v) for(auto &e :v)
+#define endl "\n"
+#define pi acos(-1.0)
+#define mod 1000000007
+
+bool bishop[1001][1001];
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    memset(bishop,false,sizeof(bishop));
+    int n ;
+    cin >>  n;
+    while(n--)
+    {
+        int a , b;
+        cin  >> a >> b;
+        bishop[a][b] = true;
+    }
+    int count = 0;
+    for(int i = 1 ;i<=1000;++i)
+    {
+        for(int j = 1;j<=1000;j++)
+        {
+            if(bishop[i][j])
+            {   
+                int x = i+1 , y  = j+1;
+                while(x<=1000 && y <= 1000)
+                {
+                    if(bishop[x][y])
+                    {
+                        count++;
+                    }
+                    x++ ; y++;
+                }
+                x = i-1 , y  = j+1;
+                while(x>=0 && y <=1000)
+                {
+                    if(bishop[x][y])
+                        count++;
+                    x-- ; y++;
+                }
+            }
+        }
+    }
+    cout << count << endl;
+
+
+}
