@@ -14,15 +14,15 @@ using namespace std;
 class Solution {
 public:
     vector<int>data;
-    void dfs(TreeNode * root)
+    void dfs(TreeNode* root)
     {
         if(root == NULL)
-            return;
-        data.push_back(root -> val);
-        dfs(root -> left);
+            return ;
+        dfs(root ->left);
         dfs(root -> right);
+        data.push_back(root ->val);
     }
-    vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> postorderTraversal(TreeNode* root) {
         dfs(root);
         return data;
     }
@@ -31,6 +31,6 @@ int main()
 {
    ios::sync_with_stdio(false);
    cin.tie(0);
-   // preorder traversal of binary tree
+   // postorder traversal of binary tree
    
 }
